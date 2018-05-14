@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import coins.Coin;
-import coinsTest.CoinsObject;
+import coins.CoinsObject;
 import vendingMachine.CoinSlot;
 
 class CoinSlotTest {

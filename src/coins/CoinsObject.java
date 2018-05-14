@@ -1,6 +1,4 @@
-package coinsTest;
-
-import coins.Coin;
+package coins;
 
 public class CoinsObject {
 	
