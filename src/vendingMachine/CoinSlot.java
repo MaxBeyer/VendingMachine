@@ -1,12 +1,15 @@
 package vendingMachine;
 
 import coins.Coin;
+import coins.CoinIdentifierObject;
 
 public class CoinSlot {
+	
+	private static CoinIdentifierObject coinIdentifierObject = new CoinIdentifierObject();
 
-	public static double generateCoinValue(Coin coin) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Coin identifyCoin(Coin coin) {
+		Coin identifiedCoin = coinIdentifierObject.identifyCoin(coin);
+		return identifiedCoin;
 	}
 
 	public static boolean isValid(Coin penny) {

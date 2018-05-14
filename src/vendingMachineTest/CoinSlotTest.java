@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import coins.Coin;
-import coins.CoinsObject;
+import coinsTest.CoinsObject;
 import vendingMachine.CoinSlot;
 
 class CoinSlotTest {
@@ -18,8 +18,12 @@ class CoinSlotTest {
 	@Test
 	void identifyQuaterTest() {
 		Coin quarter = coinsObject.getCoin("quarter");
-		double coinValue = CoinSlot.generateCoinValue(quarter);
-		assertEquals(coinValue, .25);
+		CoinSlot coinSlot= new CoinSlot();
+		Coin identifiedCoin = coinSlot.identifyCoin(quarter);
+		assertEquals("quarter", identifiedCoin.getName());
+		assertEquals(5.670, identifiedCoin.getWeight());
+		assertEquals(0.955, identifiedCoin.getSize());
+		assertEquals(.25, identifiedCoin.getValue());
 	}
 	
 	@Test
