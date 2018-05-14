@@ -2,9 +2,18 @@ package coins;
 
 public class Coin {
 	
+	private String name;
 	private double weight;
 	private double size;
 	private double value;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public double getWeight() {
 		return weight;
