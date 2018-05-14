@@ -44,6 +44,7 @@ class CoinSlotTest {
 	void returnCoinTest() {
 		CoinSlot coinSlot = new CoinSlot();
 		Coin penny = coinsObject.getCoin("penny");
+		coinSlot.insert(penny);
 		List<Coin> returnedCoins = new ArrayList<Coin>(Arrays.asList(new Coin[] {penny}));
 		assertEquals(coinSlot.coinReturn(), returnedCoins);
 	}
