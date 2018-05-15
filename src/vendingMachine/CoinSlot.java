@@ -12,12 +12,7 @@ public class CoinSlot {
 		return identifiedCoin;
 	}
 
-	public static boolean isValid(Coin penny) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	public void insert(Coin penny) {
+	public void insert(Coin coin) {
 		// TODO Auto-generated method stub
 		
 	}

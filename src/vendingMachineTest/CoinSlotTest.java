@@ -28,10 +28,11 @@ class CoinSlotTest {
 	
 	@Test
 	void validateCoinTest() {
-		Coin dime = coinsObject.getCoin("dime");
-		Coin penny = coinsObject.getCoin("penny");
-		assertEquals(CoinSlot.isValid(dime), true);
-		assertEquals(CoinSlot.isValid(penny), false);
+		CoinSlot coinSlot= new CoinSlot();
+		Coin dime = coinSlot.identifyCoin(coinsObject.getCoin("dime"));
+		Coin penny = coinSlot.identifyCoin(coinsObject.getCoin("penny"));
+		assertEquals(dime.isValid(), true);
+		assertEquals(penny.isValid(), false);
 	}
 	
 	@Test

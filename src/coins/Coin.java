@@ -6,6 +6,7 @@ public class Coin {
 	private double weight;
 	private double size;
 	private double value;
+	private boolean isValid;
 
 	public String getName() {
 		return name;
@@ -39,6 +40,14 @@ public class Coin {
 
 	public void setValue(double value) {
 		this.value = value;
+	}
+
+	public boolean isValid() {
+		return isValid;
+	}
+
+	public void setValid(boolean isValid) {
+		this.isValid = isValid;
 	}
 
 }
