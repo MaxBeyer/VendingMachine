@@ -40,9 +40,9 @@ class CoinSlotTest {
 		CoinSlot coinSlot = new CoinSlot();
 		Coin dime = coinsObject.getCoin("dime");
 		coinSlot.insert(dime);
-		assertEquals(coinSlot.currentAmount(), .10);
+		assertEquals(coinSlot.getCurrentAmount(), .10);
 		coinSlot.insert(dime);
-		assertEquals(coinSlot.currentAmount(), .20);
+		assertEquals(coinSlot.getCurrentAmount(), .20);
 	}
 	
 	@Test
@@ -51,7 +51,9 @@ class CoinSlotTest {
 		Coin penny = coinsObject.getCoin("penny");
 		coinSlot.insert(penny);
 		List<Coin> returnedCoins = new ArrayList<Coin>(Arrays.asList(new Coin[] {penny}));
-		assertEquals(coinSlot.coinReturn(), returnedCoins);
+		assertEquals(coinSlot.getCoinReturn().size(), returnedCoins.size());
+		assertEquals(coinSlot.getCoinReturn().get(0).getWeight(), returnedCoins.get(0).getWeight());
+		assertEquals(coinSlot.getCoinReturn().get(0).getSize(), returnedCoins.get(0).getSize());
 	}
 	
 	@Test
@@ -61,8 +63,8 @@ class CoinSlotTest {
 		String display = coinSlot.display();
 		assertEquals(display, "INSERT COIN");
 		coinSlot.insert(dime);
-		assertEquals(display, coinSlot.currentAmount());
+		assertEquals(display, coinSlot.getCurrentAmount());
 		coinSlot.insert(dime);
-		assertEquals(display, coinSlot.currentAmount());
+		assertEquals(display, coinSlot.getCurrentAmount());
 	}
 }
