@@ -41,8 +41,11 @@ public class CoinSlot {
 	}
 
 	public String display() {
-		// TODO Auto-generated method stub
-		return null;
+		String display = "INSERT COIN";
+		if(getCurrentAmount() > 0) {
+			display = String.valueOf(getCurrentAmount());
+		}
+		return display;
 	}
 
 

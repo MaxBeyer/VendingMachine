@@ -60,11 +60,10 @@ class CoinSlotTest {
 	void displayTest() {
 		CoinSlot coinSlot = new CoinSlot();
 		Coin dime = coinsObject.getCoin("dime");
-		String display = coinSlot.display();
-		assertEquals(display, "INSERT COIN");
+		assertEquals("INSERT COIN", coinSlot.display());
 		coinSlot.insert(dime);
-		assertEquals(display, coinSlot.getCurrentAmount());
+		assertEquals("0.1", coinSlot.display());
 		coinSlot.insert(dime);
-		assertEquals(display, coinSlot.getCurrentAmount());
+		assertEquals("0.2", coinSlot.display());
 	}
 }
