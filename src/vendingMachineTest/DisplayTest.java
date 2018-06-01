@@ -1,7 +1,6 @@
 package vendingMachineTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +31,7 @@ class DisplayTest {
 	}
 	
 	@Test
-	void displayReturnNoCoinsTest() {
+	void displayReturnCoinsButtonTest() {
 		CoinSlot coinSlot = new CoinSlot();
 		Coin dime = coinsObject.getCoin("dime");
 		Coin quarter = coinsObject.getCoin("quarter");
@@ -40,22 +39,15 @@ class DisplayTest {
 		//verify that machine is empty and calibrated
 		assertEquals("INSERT COIN", display.displayValue());
 		returnCoinsButton.press();
-		//verify that machine displays correctly, the currentAmount is 0, and returns no coins after returnedCoins is pressed with no coins
+		//verify that machine displays correctly
 		assertEquals("INSERT COIN", display.displayValue());
-		assertEquals(0, coinSlot.getCurrentAmount());
-		assertEquals(0, coinSlot.getCoinReturn().size());
-		//insert dime and quarter to machine, verify the correct value is in the currentAmount, displays, and that coin return is empty
+		//insert dime and quarter to machine, verify the correct value displays
 		coinSlot.insert(dime);
 		coinSlot.insert(quarter);
 		assertEquals("0.35", display.displayValue());
-		assertEquals(0.35, coinSlot.getCurrentAmount());
-		assertEquals(0, coinSlot.getCoinReturn().size());
-		//press returnCoinsButton, verify that display resets, currentAmount back to 0, and all inserted coins are contained in the coin slot
+		//press returnCoinsButton, verify that display resets
 		returnCoinsButton.press();
 		assertEquals("INSERT COIN", display.displayValue());
-		assertEquals(0, coinSlot.getCurrentAmount());
-		assertTrue(coinSlot.getCoinReturn().contains(dime));
-		assertTrue(coinSlot.getCoinReturn().contains(quarter));
 	}
 	
 }
