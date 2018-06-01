@@ -10,7 +10,7 @@ public class CoinSlot {
 	
 	private static CoinIdentifierObject coinIdentifierObject = new CoinIdentifierObject();
 	private static double currentAmount = 0;
-	private List<Coin> coinReturn = new ArrayList<Coin>();
+	private static List<Coin> coinReturn = new ArrayList<Coin>();
 	private static List<Coin> coinsInserted = new ArrayList<Coin>();
 
 	public double getCurrentAmount() {
@@ -25,11 +25,11 @@ public class CoinSlot {
 		return coinReturn;
 	}
 
-	public static List<Coin> getCoinsInserted() {
+	public List<Coin> getCoinsInserted() {
 		return coinsInserted;
 	}
 
-	public static void setCoinsInserted(List<Coin> coinsInserted) {
+	public void setCoinsInserted(List<Coin> coinsInserted) {
 		CoinSlot.coinsInserted = coinsInserted;
 	}
 
