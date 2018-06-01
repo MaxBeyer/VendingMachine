@@ -9,7 +9,7 @@ import coins.CoinIdentifierObject;
 public class CoinSlot {
 	
 	private static CoinIdentifierObject coinIdentifierObject = new CoinIdentifierObject();
-	private double currentAmount = 0;
+	private static double currentAmount = 0;
 	private List<Coin> coinReturn = new ArrayList<Coin>();
 
 	public double getCurrentAmount() {
@@ -17,7 +17,7 @@ public class CoinSlot {
 	}
 
 	public void setCurrentAmount(double currentAmount) {
-		this.currentAmount = currentAmount;
+		CoinSlot.currentAmount = currentAmount;
 	}
 
 	public List<Coin> getCoinReturn() {
@@ -30,7 +30,7 @@ public class CoinSlot {
 	}
 
 	public void insert(Coin coin) {
-		// TODO Auto-generated method stub
+		//make new coin object every time, since every coin is different 
 		Coin insertedCoin = coinIdentifierObject.identifyCoin(coin);
 		if(insertedCoin.isValid()) {
 			setCurrentAmount(getCurrentAmount() + insertedCoin.getValue());
@@ -39,14 +39,5 @@ public class CoinSlot {
 		}
 		
 	}
-
-	public String display() {
-		String display = "INSERT COIN";
-		if(getCurrentAmount() > 0) {
-			display = String.valueOf(getCurrentAmount());
-		}
-		return display;
-	}
-
 
 }

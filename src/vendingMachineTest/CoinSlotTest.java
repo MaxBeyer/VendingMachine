@@ -56,14 +56,4 @@ class CoinSlotTest {
 		assertEquals(coinSlot.getCoinReturn().get(0).getSize(), returnedCoins.get(0).getSize());
 	}
 	
-	@Test
-	void displayTest() {
-		CoinSlot coinSlot = new CoinSlot();
-		Coin dime = coinsObject.getCoin("dime");
-		assertEquals("INSERT COIN", coinSlot.display());
-		coinSlot.insert(dime);
-		assertEquals("0.1", coinSlot.display());
-		coinSlot.insert(dime);
-		assertEquals("0.2", coinSlot.display());
-	}
 }
