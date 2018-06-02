@@ -12,7 +12,7 @@ import coinsTest.CoinsObject;
 import vendingMachine.CoinSlot;
 import vendingMachine.ReturnCoinsButton;
 
-class CoinSlotTest {
+public class CoinSlotTest {
 	
 	CoinSlot coinSlot;
 	CoinsObject coinsObject;

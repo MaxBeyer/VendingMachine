@@ -11,4 +11,12 @@
   		<version>5.0.0-ALPHA</version>
   	</dependency>
   </dependencies>
+  <build>
+  	<sourceDirectory>
+  	src
+  	</sourceDirectory>
+  	<testSourceDirectory>
+  	src
+  	</testSourceDirectory>
+    </build>
 </project>
