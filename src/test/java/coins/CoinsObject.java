@@ -1,4 +1,4 @@
-package coinsTest;
+package coins;
 
 import coins.Coin;
 

@@ -1,24 +1,39 @@
-package vendingMachineTest;
+package vendingMachine;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import coins.Coin;
-import coinsTest.CoinsObject;
+import coins.CoinsObject;
 import vendingMachine.CoinSlot;
 import vendingMachine.Display;
 import vendingMachine.ReturnCoinsButton;
 
-class DisplayTest {
+public class DisplayTest {
 	
-	private CoinsObject coinsObject = new CoinsObject();
+	
+	CoinSlot coinSlot;
+	CoinsObject coinsObject;
+	
+	@Before public void initializeCoinSlot() {
+		coinSlot = new CoinSlot();
+		coinsObject = new CoinsObject();
+	}
+	
+	@After public void resetCoinSlot() {
+		coinSlot.setCurrentAmount(0);
+		coinSlot.getCoinReturn().clear();
+		coinSlot.getCoinsInserted().clear();
+	}
+	
 	private Display display = new Display();
 
 	@Test
-	void displayTest() {
+	public void displayTest() {
 		//initiate a new coinSlot object and get a dime object
-		CoinSlot coinSlot = new CoinSlot();
 		Coin dime = coinsObject.getCoin("dime");
 		assertEquals("INSERT COIN", display.displayValue());
 		coinSlot.insert(dime);
@@ -31,8 +46,7 @@ class DisplayTest {
 	}
 	
 	@Test
-	void displayReturnCoinsButtonTest() {
-		CoinSlot coinSlot = new CoinSlot();
+	public void displayReturnCoinsButtonTest() {
 		Coin dime = coinsObject.getCoin("dime");
 		Coin quarter = coinsObject.getCoin("quarter");
 		ReturnCoinsButton returnCoinsButton = new ReturnCoinsButton();
