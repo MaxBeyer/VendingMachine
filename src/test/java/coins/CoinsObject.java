@@ -5,6 +5,9 @@ import coins.Coin;
 public class CoinsObject {
 	
 	//for testing purposes only
+	//This class only exists to quickly assign real coin data values to objects
+	//to test the vending machine's capability of identifying valid coins.
+	//Doing this in every test case would be redundant and exausting
 	public Coin getCoin(String coin) {
 		Coin coinToIdentify = new Coin();
 		switch (coin) {
