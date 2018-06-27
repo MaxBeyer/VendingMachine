@@ -6,7 +6,8 @@ public enum CoinEnum {
 
 	NICKLE("nickle", 5.000, 0.835, .05, true),
 	DIME("dime", 2.268, 0.053, .10, true),
-	QUARTER("quarter", 5.670, 0.955, .25, true);
+	QUARTER("quarter", 5.670, 0.955, .25, true),
+	INVALID_COIN("invalid coin", 0, 0, 0, false);
 
 	private String name;
 	private double weight;
@@ -29,9 +30,17 @@ public enum CoinEnum {
 	public double getWeight() {
 		return weight;
 	}
+	
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
 
 	public double getSize() {
 		return size;
+	}
+
+	public void setSize(double size) {
+		this.size = size;
 	}
 
 	public double getValue() {
@@ -42,13 +51,4 @@ public enum CoinEnum {
 		return isValid;
 	}
 
-	public static CoinEnum identifyBy(Coin insertedObject) {
-		for (CoinEnum coin : values()) {
-			if (coin.getWeight() == insertedObject.getWeight() && 
-					coin.getSize() == insertedObject.getSize()){
-				return coin;
-			}
-		}
-		return null;
-	}
 }
