@@ -1,6 +1,7 @@
 package vendingMachine;
 
-import coins.Coin;
+import coins.CoinLikeObject;
+import coins.CoinEnum;
 
 /*
 As a customer
@@ -12,7 +13,7 @@ public class ReturnCoinsButton extends CoinSlot{
 	
 	public void press() {
 		setCurrentAmount(0);
-		for(Coin coin:getCoinsInserted()) {
+		for(CoinEnum coin:getCoinsInserted()) {
 			getCoinReturn().add(coin);
 		}
 		getCoinsInserted().clear();

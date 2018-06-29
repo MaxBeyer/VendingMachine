@@ -6,8 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import coins.Coin;
-import coins.CoinsObject;
+import coins.CoinLikeObject;
 import vendingMachine.CoinSlot;
 import vendingMachine.Display;
 import vendingMachine.ReturnCoinsButton;
@@ -16,11 +15,9 @@ public class DisplayTest {
 	
 	
 	CoinSlot coinSlot;
-	CoinsObject coinsObject;
 	
 	@Before public void initializeCoinSlot() {
 		coinSlot = new CoinSlot();
-		coinsObject = new CoinsObject();
 	}
 	
 	@After public void resetCoinSlot() {
@@ -34,7 +31,7 @@ public class DisplayTest {
 	@Test
 	public void displayTest() {
 		//initiate a new coinSlot object and get a dime object
-		Coin dime = coinsObject.getCoin("dime");
+		CoinLikeObject dime = coinsObject.getCoin("dime");
 		assertEquals("INSERT COIN", display.displayValue());
 		coinSlot.insert(dime);
 		assertEquals("0.1", display.displayValue());
@@ -47,8 +44,8 @@ public class DisplayTest {
 	
 	@Test
 	public void displayReturnCoinsButtonTest() {
-		Coin dime = coinsObject.getCoin("dime");
-		Coin quarter = coinsObject.getCoin("quarter");
+		CoinLikeObject dime = coinsObject.getCoin("dime");
+		CoinLikeObject quarter = coinsObject.getCoin("quarter");
 		ReturnCoinsButton returnCoinsButton = new ReturnCoinsButton();
 		//verify that machine is empty and calibrated
 		assertEquals("INSERT COIN", display.displayValue());

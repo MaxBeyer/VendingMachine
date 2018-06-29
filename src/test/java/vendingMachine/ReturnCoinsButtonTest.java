@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import coins.Coin;
+import coins.CoinLikeObject;
 import coins.CoinsObject;
 import vendingMachine.CoinSlot;
 import vendingMachine.Display;
@@ -21,11 +21,9 @@ So that I can change my mind about buying stuff from the vending machine
 public class ReturnCoinsButtonTest {
 
 	CoinSlot coinSlot;
-	CoinsObject coinsObject;
 	
 	@Before public void initializeCoinSlot() {
 		coinSlot = new CoinSlot();
-		coinsObject = new CoinsObject();
 	}
 	
 	@After public void resetCoinSlot() {
@@ -37,8 +35,8 @@ public class ReturnCoinsButtonTest {
 	@Test
 	public void displayReturnNoCoinsTest() {
 		Display display = new Display();
-		Coin dime = coinsObject.getCoin("dime");
-		Coin quarter = coinsObject.getCoin("quarter");
+		CoinLikeObject dime = coinsObject.getCoin("dime");
+		CoinLikeObject quarter = coinsObject.getCoin("quarter");
 		ReturnCoinsButton returnCoinsButton = new ReturnCoinsButton();
 		//verify that machine is empty and calibrated
 		assertEquals("INSERT COIN", display.displayValue());
