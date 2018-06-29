@@ -7,14 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import coins.CoinLikeObject;
-import vendingMachine.CoinSlot;
-import vendingMachine.Display;
-import vendingMachine.ReturnCoinsButton;
 
 public class DisplayTest {
 	
 	
 	CoinSlot coinSlot;
+	
+	public static final CoinLikeObject PENNY = new CoinLikeObject(1.55517, 0.75);
+	public static final CoinLikeObject NICKEL = new CoinLikeObject(5.000, 0.835);
+	public static final CoinLikeObject DIME = new CoinLikeObject(2.268, 0.053);
+	public static final CoinLikeObject QUARTER = new CoinLikeObject(5.670, 0.955);
+	public static final CoinLikeObject HALF_DOLLAR = new CoinLikeObject(12.5, 1.205);
 	
 	@Before public void initializeCoinSlot() {
 		coinSlot = new CoinSlot();
@@ -31,11 +34,10 @@ public class DisplayTest {
 	@Test
 	public void displayTest() {
 		//initiate a new coinSlot object and get a dime object
-		CoinLikeObject dime = coinsObject.getCoin("dime");
 		assertEquals("INSERT COIN", display.displayValue());
-		coinSlot.insert(dime);
+		coinSlot.insert(DIME);
 		assertEquals("0.1", display.displayValue());
-		coinSlot.insert(dime);
+		coinSlot.insert(DIME);
 		assertEquals("0.2", display.displayValue());
 		//reset the coinSlot
 		coinSlot.setCurrentAmount(0);
@@ -44,8 +46,6 @@ public class DisplayTest {
 	
 	@Test
 	public void displayReturnCoinsButtonTest() {
-		CoinLikeObject dime = coinsObject.getCoin("dime");
-		CoinLikeObject quarter = coinsObject.getCoin("quarter");
 		ReturnCoinsButton returnCoinsButton = new ReturnCoinsButton();
 		//verify that machine is empty and calibrated
 		assertEquals("INSERT COIN", display.displayValue());
@@ -53,8 +53,8 @@ public class DisplayTest {
 		//verify that machine displays correctly
 		assertEquals("INSERT COIN", display.displayValue());
 		//insert dime and quarter to machine, verify the correct value displays
-		coinSlot.insert(dime);
-		coinSlot.insert(quarter);
+		coinSlot.insert(DIME);
+		coinSlot.insert(QUARTER);
 		assertEquals("0.35", display.displayValue());
 		//press returnCoinsButton, verify that display resets
 		returnCoinsButton.press();

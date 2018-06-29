@@ -1,6 +1,5 @@
 package vendingMachine;
 
-import coins.CoinLikeObject;
 import coins.CoinEnum;
 
 /*

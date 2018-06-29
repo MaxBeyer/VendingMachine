@@ -7,10 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import coins.CoinLikeObject;
-import coins.CoinsObject;
-import vendingMachine.CoinSlot;
-import vendingMachine.Display;
-import vendingMachine.ReturnCoinsButton;
 
 /*
 As a customer
@@ -21,6 +17,12 @@ So that I can change my mind about buying stuff from the vending machine
 public class ReturnCoinsButtonTest {
 
 	CoinSlot coinSlot;
+	
+	public static final CoinLikeObject PENNY = new CoinLikeObject(1.55517, 0.75);
+	public static final CoinLikeObject NICKEL = new CoinLikeObject(5.000, 0.835);
+	public static final CoinLikeObject DIME = new CoinLikeObject(2.268, 0.053);
+	public static final CoinLikeObject QUARTER = new CoinLikeObject(5.670, 0.955);
+	public static final CoinLikeObject HALF_DOLLAR = new CoinLikeObject(12.5, 1.205);
 	
 	@Before public void initializeCoinSlot() {
 		coinSlot = new CoinSlot();
@@ -35,8 +37,6 @@ public class ReturnCoinsButtonTest {
 	@Test
 	public void displayReturnNoCoinsTest() {
 		Display display = new Display();
-		CoinLikeObject dime = coinsObject.getCoin("dime");
-		CoinLikeObject quarter = coinsObject.getCoin("quarter");
 		ReturnCoinsButton returnCoinsButton = new ReturnCoinsButton();
 		//verify that machine is empty and calibrated
 		assertEquals("INSERT COIN", display.displayValue());
@@ -46,8 +46,8 @@ public class ReturnCoinsButtonTest {
 		assertWithTolerance(0, coinSlot.getCurrentAmount());
 		assertEquals(0, coinSlot.getCoinReturn().size());
 		//insert dime and quarter to machine, verify the correct value is in the currentAmount, displays, and that coin return is empty
-		coinSlot.insert(dime);
-		coinSlot.insert(quarter);
+		coinSlot.insert(DIME);
+		coinSlot.insert(QUARTER);
 		assertEquals("0.35", display.displayValue());
 		assertWithTolerance(0.35, coinSlot.getCurrentAmount());
 		assertEquals(0, coinSlot.getCoinReturn().size());
